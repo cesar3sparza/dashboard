@@ -1,9 +1,11 @@
 <template>
   <div class="weather">
     <h1>WEATHER</h1>
-    <p>Current Temperature: {{ temperature }}</p>
-    <p>Current Summary: {{ summary }}</p>
-    <p>Today's High: {{ tempHigh }}</p>
+    <ul>
+      <li>Current Temperature: {{ temperature }}</li>
+      <li>Current Summary: {{ summary }}</li>
+      <li>Today's High: {{ tempHigh }}</li>
+    </ul>
   </div>
 </template>
 

@@ -1,7 +1,10 @@
 <template>
   <div class="nest">
-    <div v-for="image in images" class="nestImg">
-      <img :src="image" alt="">
+    <div v-for="camera in cameras" class="nestImg">
+      <caption>{{ camera.where_name }}</caption>
+      <a :href="camera.public_share_url">
+        <img :src="camera.last_event.animated_image_url">
+      </a>
     </div>
   </div>
 </template>
@@ -19,21 +22,29 @@ export default {
   },
   // next step, wrap created() in a function and run setinterval over the function
   created(){
-    axios.get('http://localhost:3000/nest', {
-    })
-    .then(response => {
-      // JSON responses are automatically parsed.
-      this.data = response.data
-      this.cameras = this.data.devices.cameras
-      var camImages = []
-      for(var key in this.cameras){
-        if(this.cameras.hasOwnProperty(key)){
-          console.log(key + ":" + this.cameras[key].last_event.animated_image_url)
-          camImages.push(this.cameras[key].last_event.animated_image_url)
+    this.loadData()
+    // setInterval(function(){
+    //   this.loadData()
+    // }.bind(this),60000)
+  },
+  methods: {
+    loadData: function(){
+      axios.get('http://localhost:3000/nest', {
+      })
+      .then(response => {
+        // JSON responses are automatically parsed.
+        this.data = response.data
+        this.cameras = this.data.devices.cameras
+        var camImages = []
+        for(var key in this.cameras){
+          if(this.cameras.hasOwnProperty(key)){
+            console.log(key + ":" + this.cameras[key].last_event.animated_image_url)
+            camImages.push(this.cameras[key].last_event.animated_image_url)
+          }
         }
-      }
-      this.images = camImages
-    })
+        this.images = camImages
+      })
+    }
   }
 }
 </script>

@@ -4,6 +4,7 @@ var path = require('path');
 
 var indexRouter = require('./routes/index');
 var weatherRouter = require('./routes/weather');
+var todoRouter = require('./routes/todo');
 var nestRouter = require('./routes/nest');
 var app = express();
 
@@ -19,6 +20,7 @@ app.all('*', function(req, res, next) {
 
 app.use('/weather', weatherRouter);
 app.use('/nest', nestRouter);
+app.use('/todo', todoRouter);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
