@@ -14,6 +14,7 @@
     "jade": "~1.11.0",
     "marked": "^0.5.1",
     "morgan": "~1.9.0",
+    "node-instagram": "^4.2.0",
     "request": "^2.88.0"
   },
   "devDependencies": {

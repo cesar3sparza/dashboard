@@ -6,7 +6,7 @@ var gulp = require('gulp'),
       script:'./bin/www',
       ext:'js',
       env:{
-        PORT:3000
+        PORT:5000
       },
       ignore:['./node_modules']
     })

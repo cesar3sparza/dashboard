@@ -1,8 +1,15 @@
 <template>
   <div id="app">
-    <Weather class="weather" />
-    <ToDo class="todo" />
-    <Nest class="nest" />
+    <div class="parent1">
+      <Weather class="weather child" />
+      <ToDo class="todo child" />
+    </div>
+    <div class="parent2">
+      <Nest class="nest child" />
+    </div>
+    <div class="parent3">
+      <Gram class="gram child" />
+    </div>
   </div>
 </template>
 
@@ -10,84 +17,36 @@
 import Nest from './components/Nest.vue'
 import Weather from './components/Weather.vue'
 import ToDo from './components/Todo.vue'
+import Gram from './components/Gram.vue'
 export default {
   name: 'app',
   components: {
     Nest,
     Weather,
-    ToDo
+    ToDo,
+    Gram
   }
 }
 </script>
 <style>
-body {
-  background-color: #566677;
+.parent1 {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
 }
 
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #ffffff;
-  margin-top: 60px;
+.parent2 {
+  display: flex;
+  justify-content: center;
 }
 
-.weather {
-  float: left;
-  height: auto;
-  width: 25%;
-}
-
-.weather p {
-  text-align: left;
-}
-
-.todo {
-  float: left;
-  height: auto;
-  width: 25%;
-}
-
-.todo ul {
-  position: relative;
-  right: 4rem;
-}
-
-.weather h1 {
-  margin-left: 6rem;
-}
-
-.weather ul {
-  margin-left: 3rem;
-}
-
-h1 {
-  position: relative;
-  text-transform: uppercase;
-  text-align: left;
+caption {
+  width: max-content;
 }
 
 li {
   list-style-type: none;
-  text-align: left;
 }
 
-.nest .nestImg {
-  float: left;
-  width:50%;
-}
-
-.nest .nestImg caption {
-  display: inherit;
-  position: relative;
-  right: 18rem;
-  top: 4rem;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.nestImg img {
-  width: 80%;
-}
 </style>

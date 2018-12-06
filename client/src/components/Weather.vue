@@ -22,7 +22,7 @@ export default {
     }
   },
   created(){
-    axios.get('http://localhost:3000/weather', {
+    axios.get('http://localhost:5000/weather', {
     })
     .then(response => {
       // JSON responses are automatically parsed.

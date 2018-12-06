@@ -2,7 +2,9 @@
   <div class="todo">
     <h1>ToDo</h1>
     <ul>
-      <li v-for="task in tasks" @click="markasDone(task)"><vue-simple-markdown :source="task.content"></vue-simple-markdown></li>
+      <li v-for="task in tasks" :key="task.id" @click="markasDone(task)">
+        <vue-simple-markdown :source="task.content"></vue-simple-markdown>
+      </li>
     </ul>
   </div>
 </template>
@@ -13,8 +15,7 @@ export default {
   name: 'ToDo',
   data: function() {
     return { 
-      tasks: [],
-      input: '# hello'
+      tasks: []
     }
   },
   created(){
@@ -23,15 +24,19 @@ export default {
   methods: {
     markasDone: function(task){
       var closeTask = confirm('Close this task')
-      closeTask
-      if(confirm){
+      if(closeTask === true){
         axios({
         method: 'post',
-        url: 'http://localhost:3000/todo/' + task.id
-      })
-      .then(function(){
-          loadData()
+        url: 'http://localhost:5000/todo/' + task.id
         })
+      }
+    },
+    loadData: function(){
+      axios.get('http://localhost:5000/todo', {
+      })
+      .then(response => {
+        this.tasks=response.data
+      })
       .catch(function (error) {
         if (error.response) {
           // The request was made and the server responded with a status code
@@ -49,14 +54,6 @@ export default {
           console.log('Error', error.message);
         }
         console.log(error.config);
-        })
-      }
-    },
-    loadData: function(){
-      axios.get('http://localhost:3000/todo', {
-      })
-      .then(response => {
-        this.tasks=response.data
       })
     }
   }

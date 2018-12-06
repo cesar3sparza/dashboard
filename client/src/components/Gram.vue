@@ -1,22 +1,16 @@
 <template>
-  <div class="nest parent2">
-    <div v-for="camera in cameras" :key="camera._id" class="nestImg child">
-      <caption>{{ camera.where_name }}</caption>
-      <a :href="camera.public_share_url">
-        <img :src="camera.last_event.animated_image_url">
-      </a>
-    </div>
+  <div class="gram parent3">
+    
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 export default {
-  name: 'Nest',
+  name: 'Gram',
   data: function() {
     return { 
-      data:'',
-      cameras: null
+      data:''
     }
   },
   // next step, wrap created() in a function and run setinterval over the function
@@ -28,12 +22,11 @@ export default {
   },
   methods: {
     loadData: function(){
-      axios.get('http://localhost:5000/nest', {
+      axios.get('http://localhost:5000/instagram', {
       })
       .then(response => {
         // JSON responses are automatically parsed.
         this.data = response.data
-        this.cameras = this.data.devices.cameras
       })
     }
   }
