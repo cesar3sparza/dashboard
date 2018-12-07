@@ -6,7 +6,6 @@ var indexRouter = require('./routes/index');
 var weatherRouter = require('./routes/weather');
 var todoRouter = require('./routes/todo');
 var nestRouter = require('./routes/nest');
-var instRouter = require('./routes/instagram');
 var app = express();
 
 // view engine setup
@@ -19,18 +18,17 @@ app.all('*', function(req, res, next) {
   next();
  });
 
- app.use('/', indexRouter);
+app.use('/', indexRouter);
 app.use('/weather', weatherRouter);
 app.use('/nest', nestRouter);
 app.use('/todo', todoRouter);
-app.use('/instagram', instRouter);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set default to whatever current focus is
-app.use('/', instRouter);
+app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
