@@ -1,6 +1,7 @@
 import React from 'react';
+import appStyles from '../appStyles';
 
-class Weather extends React.Component {
+class ToDo extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -23,7 +24,7 @@ class Weather extends React.Component {
         this.setState({
           isLoaded: true,
           error
-        });
+        })
       }
     )
   }
@@ -32,16 +33,16 @@ class Weather extends React.Component {
     const { error, isLoaded, data } = this.state;
     if(error){
       return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
+    } else if(!isLoaded){
       return <div>Loading...</div>;
     } else {
       return (
-        <div className='weatherApp'>
-          <h2>Weather</h2>
+        <div className='todoApp' style={appStyles.todoApp}>
+          <h2>ToDo</h2>
           <ul>
-            <li>Current Temperature: {data.currently.apparentTemperature}</li>
-            <li>Today's High: {data.daily.data[0].temperatureHigh}</li>
-            <li>Summary: {data.currently.summary}</li>
+            {Object.keys(data).map(key => 
+              <li key={key} index={data[key].id}>{data[key].content}</li>
+            )}
           </ul>
         </div>
       )
@@ -49,4 +50,4 @@ class Weather extends React.Component {
   }
 }
 
-export default Weather;
+export default ToDo;

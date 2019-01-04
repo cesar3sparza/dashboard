@@ -1,5 +1,5 @@
 import React from 'react';
-import nestStyles from '../nestStyles';
+import appStyles from '../appStyles';
 
 class Nest extends React.Component {
   constructor(props){
@@ -42,18 +42,18 @@ class Nest extends React.Component {
         return <div>Loading...</div>;
       } else {
         return (
-          <div className='nestApp' width={nestStyles.appWidth + `%`}>
-            <h2>Nest</h2>
-            <ul>
+          <div className='nestApp' style={appStyles.nestApp}>
+            <h2 style={appStyles.nestApp.h2}>Nest</h2>
               {Object.keys(data.cameras).map(key =>
-                <li key={key}>
+                <div key={key} style={appStyles.nestCameras}>
+                  <h4>{data.cameras[key].name}</h4>
+                  <a href={data.cameras[key].public_share_url || data.cameras[key].web_url}>
                   <img 
                     src={data.cameras[key].last_event.animated_image_url} 
                     alt={data.cameras[key].name} 
-                  />
-                </li>
+                  /></a>
+                </div>
               )}
-            </ul>
         </div>
       )
     }
