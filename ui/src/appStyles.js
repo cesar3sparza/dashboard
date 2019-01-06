@@ -2,10 +2,18 @@ const appStyles = {
   main: {
     display: 'grid',
     gridTemplateColumns: 'auto auto',
-    backgroundColor: 'lightblue'
+    backgroundColor: '#545a5a',
+    color: 'white'
   },
   app: {
     backgroundColor: 'lightblue'
+  },
+  appH2:{
+    backgroundColor: 'cadetblue',
+    gridColumnStart: 1,
+    gridColumnEnd: 3,
+    margin: 0,
+    textAlign: 'center'
   },
   weatherApp: {
     gridColumnStart: 1,
@@ -17,18 +25,32 @@ const appStyles = {
     gridColumnEnd: 3,
     padding: '10rem'
   },
+  toDoItems: {
+    cursor: 'pointer'
+  },
+  ul: {
+    height: '10rem',
+    overflow: 'overlay',
+    color: '#bdbdbd'
+  },
   nestApp: {
+    display: 'grid',
     gridColumnStart: 1,
     gridColumnEnd: 3,
-    display: 'grid',
     gridTemplateColumns: 'auto auto auto',
     h2: {
+      backgroundColor: 'cadetblue',
       gridColumnStart: 1,
-      gridColumnEnd: 4
+      gridColumnEnd: 4,
+      textAlign: 'center',
+      textTransform: 'uppercase'
     }
   },
   nestCameras: {
     display: 'inlineGrid'
+  },
+  camsH4: {
+    color: 'white'
   }
 };
 

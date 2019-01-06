@@ -32,8 +32,10 @@ router.post('/:id', function(req, res){
   }, function(error, response, body){
     if(error){
       res.send(error);
+    } else {
+      res.send(response)
     }
   })
-})
+});
 
 module.exports = router;

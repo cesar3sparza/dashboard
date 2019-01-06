@@ -11,7 +11,7 @@ class ToDo extends React.Component {
     }
   }
 
-  componentDidMount(){
+  fetchList(){
     fetch(this.props.url)
       .then(res => res.json())
       .then((result) => {
@@ -29,6 +29,20 @@ class ToDo extends React.Component {
     )
   }
 
+  componentDidMount(){
+    this.fetchList()
+  }
+
+  markAsDone(taskId){
+    const confirmDone = window.confirm('Mark this task as Done?')
+    if(confirmDone){
+      console.log(taskId)
+      fetch(this.props.url + '/' + taskId, {method: 'post'})
+      .then(this.fetchList())
+      .then(this.render())
+    }
+  }
+
   render(){
     const { error, isLoaded, data } = this.state;
     if(error){
@@ -39,9 +53,9 @@ class ToDo extends React.Component {
       return (
         <div className='todoApp' style={appStyles.todoApp}>
           <h2>ToDo</h2>
-          <ul>
+          <ul style={appStyles.ul}>
             {Object.keys(data).map(key => 
-              <li key={key} index={data[key].id}>{data[key].content}</li>
+              <li key={key} index={data[key].id} style={appStyles.toDoItems} onClick={() => this.markAsDone(data[key].id)}>{data[key].content}</li>
             )}
           </ul>
         </div>

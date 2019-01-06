@@ -46,7 +46,7 @@ class Nest extends React.Component {
             <h2 style={appStyles.nestApp.h2}>Nest</h2>
               {Object.keys(data.cameras).map(key =>
                 <div key={key} style={appStyles.nestCameras}>
-                  <h4>{data.cameras[key].name}</h4>
+                  <h4 style={appStyles.camsH4}>{data.cameras[key].name}</h4>
                   <a href={data.cameras[key].public_share_url || data.cameras[key].web_url}>
                   <img 
                     src={data.cameras[key].last_event.animated_image_url} 
