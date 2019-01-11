@@ -33,8 +33,10 @@ router.post('/:id', function(req, res){
   }, function(error, response, body){
     if(error){
       res.send(error);
+      console.log(error);
     } else {
-      res.send(response)
+      res.send(body)
+      console.log(body)
     }
   })
 });

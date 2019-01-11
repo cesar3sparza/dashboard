@@ -30,7 +30,8 @@ class ToDo extends React.Component {
                     style={appStyles.toDoItems} 
                     onClick={() => 
                       this.props.markAsDone(tasks[key].id, this.todoUrl)}>
-                      {tasks[key].content}
+                      Task: {tasks[key].content} 
+                      TaskId: {tasks[key].id}
                   </li>
                   )
                 }

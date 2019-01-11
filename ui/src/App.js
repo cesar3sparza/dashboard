@@ -16,19 +16,18 @@ class App extends Component {
 
   fetchList = (todoUrl) => {
     fetch(todoUrl)
-      .then(res => res.json())
-      .then((result) => {
-        this.setState({
-          tasks: result,
-          isTodoLoaded: true
-        })
-      }
-    )
+    .then(res => res.json())
+    .then((result) => {
+      const dashboardTasks = result.filter(dbt => dbt.project_id === 2198782583)
+      this.setState({
+        tasks: dashboardTasks,
+        isTodoLoaded: true
+      })
+    })
   }
 
   markAsDone = (taskId, todoUrl) => {
     fetch(todoUrl + taskId, {method: 'post'})
-    .then(res => res.json())
     .then(this.fetchList(todoUrl))
   }
 
