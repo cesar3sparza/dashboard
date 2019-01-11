@@ -19,9 +19,8 @@ class Nest extends React.Component {
       } else {
         return (
           <div className='nestApp' style={appStyles.nestApp}>
-            <h2 style={appStyles.nestApp.h2}>Nest</h2>
               {Object.keys(cameras.cameras).map(key =>
-                <div key={key} style={appStyles.nestCameras}>
+                <div key={key} className='nestCams' style={appStyles.nestCameras}>
                   <h4 style={appStyles.camsH4}>{cameras.cameras[key].name}</h4>
                   <a href={cameras.cameras[key].public_share_url || cameras.cameras[key].web_url}>
                     <img 

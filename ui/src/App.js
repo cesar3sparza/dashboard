@@ -47,6 +47,12 @@ class App extends Component {
     return (
       <div className="App" style={appStyles.main}>
         <h2 style={appStyles.appH2}>DASHBOARD</h2>
+        <Nest
+          fetchCameras={this.fetchCameras}
+          isLoaded={this.state.isNestLoaded}
+          error={this.state.nestError}
+          cameras={this.state.cameras}
+        />
         <Weather url='http://localhost:5000/weather' />
         <ToDo
           markAsDone={this.markAsDone} 
@@ -54,12 +60,6 @@ class App extends Component {
           isTodoLoaded={this.state.isTodoLoaded}
           error={this.state.taskError} 
           fetchList={this.fetchList} 
-        />
-        <Nest
-          fetchCameras={this.fetchCameras}
-          isLoaded={this.state.isNestLoaded}
-          error={this.state.nestError}
-          cameras={this.state.cameras}
         />
       </div>
     );

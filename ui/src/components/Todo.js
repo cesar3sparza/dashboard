@@ -20,22 +20,23 @@ class ToDo extends React.Component {
       return (
         <div className='todoApp' style={appStyles.todoApp}>
           <h2>ToDo</h2>
+          <span 
+            style={appStyles.reloadTasks} 
+            onClick={() => this.props.fetchList(this.todoUrl)}>
+            &#x21bb;
+          </span>
           <ul style={appStyles.ul}>
-            {Object.keys(tasks).map(key => 
-              {if(tasks[key].project_id === 2198782583){
-                return ( 
-                  <li 
-                    key={key} 
-                    index={tasks[key].id} 
-                    style={appStyles.toDoItems} 
-                    onClick={() => 
-                      this.props.markAsDone(tasks[key].id, this.todoUrl)}>
-                      Task: {tasks[key].content} 
-                      TaskId: {tasks[key].id}
-                  </li>
-                  )
-                }
-              }
+            {Object.keys(tasks).map(key =>  
+              <li 
+                key={key} 
+                index={tasks[key].id} 
+                style={appStyles.toDoItems} 
+                onClick={() => 
+                  this.props.markAsDone(tasks[key].id, this.todoUrl)}>
+                  Task: {tasks[key].content} - 
+                  TaskId: {tasks[key].id} - 
+                  ProjectID: {tasks[key].project_id}
+              </li>
             )}
           </ul>
         </div>

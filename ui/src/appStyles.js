@@ -28,12 +28,20 @@ const appStyles = {
   toDoItems: {
     cursor: 'pointer'
   },
+  reloadTasks: {
+    color: 'cadetblue',
+    cursor: 'pointer',
+    position: 'relative',
+    top: -45,
+    left: 80
+  },
   ul: {
     height: '10rem',
     overflow: 'overlay',
     color: '#bdbdbd'
   },
   nestApp: {
+    alignCenter: 'center',
     display: 'grid',
     gridColumnStart: 1,
     gridColumnEnd: 3,
@@ -44,7 +52,8 @@ const appStyles = {
       gridColumnEnd: 4,
       textAlign: 'center',
       textTransform: 'uppercase'
-    }
+    },
+    marginBottom: 50
   },
   nestCameras: {
     display: 'inlineGrid'
