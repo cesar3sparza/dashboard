@@ -23,6 +23,24 @@ router.get('/', function(req, res, next) {
   })
 });
 
+router.get('/projects', function(req, res, next) {
+  request({
+    headers:{
+      'Content-Type': 'application/json',
+      'Authorization': todoistToken
+    },
+    uri: 'https://beta.todoist.com/API/v8/projects',
+    method: 'GET'
+  }, function(error, response, body){
+    if(!error){
+      res.send(body);
+      console.log(body);
+    } else {
+      res.send(error);
+    }
+  })
+});
+
 router.post('/:id', function(req, res){
   request({
     method: 'post',

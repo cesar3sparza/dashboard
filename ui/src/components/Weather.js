@@ -38,7 +38,7 @@ class Weather extends React.Component {
     } else {
       return (
         <div className='weatherApp' style={appStyles.weatherApp}>
-          <h2>Weather</h2>
+          <h2 style={appStyles.weatherApp.h2}>Weather</h2>
           <ul style={appStyles.ul}>
             <li>Current Temperature: {data.currently.apparentTemperature}</li>
             <li>Today's High: {data.daily.data[0].temperatureHigh}</li>

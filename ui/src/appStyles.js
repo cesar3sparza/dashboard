@@ -18,12 +18,21 @@ const appStyles = {
   weatherApp: {
     gridColumnStart: 1,
     gridColumnEnd: 2,
-    padding: '10rem'
+    padding: '10rem 10rem 2rem 10rem',
+    h2: {
+      margin: '0 0 0 0'
+    }
   },
   todoApp: {
     gridColumnStart: 2,
     gridColumnEnd: 3,
-    padding: '10rem'
+    padding: '10rem 10rem 2rem 10rem',
+    h2: {
+      margin: '0'
+    },
+    projectSelect: {
+      margin: '0 0 0 -13px'
+    }
   },
   toDoItems: {
     cursor: 'pointer'
@@ -32,7 +41,7 @@ const appStyles = {
     color: 'cadetblue',
     cursor: 'pointer',
     position: 'relative',
-    top: -45,
+    top: -25,
     left: 80
   },
   ul: {
@@ -52,8 +61,7 @@ const appStyles = {
       gridColumnEnd: 4,
       textAlign: 'center',
       textTransform: 'uppercase'
-    },
-    marginBottom: 50
+    }
   },
   nestCameras: {
     display: 'inlineGrid'
