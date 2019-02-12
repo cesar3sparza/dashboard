@@ -1,38 +1,37 @@
 const appStyles = {
   main: {
     display: 'grid',
-    gridTemplateColumns: 'auto auto',
     backgroundColor: '#545a5a',
-    color: 'white'
-  },
-  app: {
-    backgroundColor: 'lightblue'
-  },
-  appH2:{
-    backgroundColor: 'cadetblue',
-    gridColumnStart: 1,
-    gridColumnEnd: 3,
-    margin: 0,
-    textAlign: 'center'
+    color: 'white',
+    overflow: 'hidden'
   },
   weatherApp: {
-    gridColumnStart: 1,
-    gridColumnEnd: 2,
-    padding: '10rem 10rem 2rem 10rem',
+    padding: '10px',
     h2: {
       margin: '0 0 0 0'
     }
   },
   todoApp: {
-    gridColumnStart: 2,
-    gridColumnEnd: 3,
-    padding: '10rem 10rem 2rem 10rem',
+    display: 'inline-grid',
+    gridColumnStart: 1,
+    gridColumnEnd: 2,
     h2: {
       margin: '0'
     },
     projectSelect: {
-      margin: '0 0 0 -13px'
-    }
+      backgroundColor: 'darkcyan',
+      color: 'white',
+      fontWeight: 700,
+      textTransform: 'uppercase',
+      width: 'max-content'
+    },
+    ul: {
+      color: '#bdbdbd',
+      height: 175,
+      overflow: 'auto',
+      width: 'max-content'
+    },
+    width: 0
   },
   toDoItems: {
     cursor: 'pointer'
@@ -44,11 +43,6 @@ const appStyles = {
     top: -25,
     left: 80
   },
-  ul: {
-    height: '10rem',
-    overflow: 'overlay',
-    color: '#bdbdbd'
-  },
   nestApp: {
     alignCenter: 'center',
     display: 'grid',
@@ -57,17 +51,19 @@ const appStyles = {
     gridTemplateColumns: 'auto auto auto',
     h2: {
       backgroundColor: 'cadetblue',
-      gridColumnStart: 1,
-      gridColumnEnd: 4,
       textAlign: 'center',
       textTransform: 'uppercase'
-    }
+    },
+    margin: '0 0 100px 0'
   },
   nestCameras: {
     display: 'inlineGrid'
   },
   camsH4: {
-    color: 'white'
+    color: 'white',
+    position: 'relative',
+    top: 50,
+    left: 12
   }
 };
 

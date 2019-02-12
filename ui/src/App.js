@@ -15,14 +15,15 @@ class App extends Component {
     isTodoLoaded: false,
     cameras: {},
     nestError: null,
-    isNestLoaded: false    
+    isNestLoaded: false,
   }
+
+  url = 'http://50.116.12.123:5000';
 
   fetchList = (todoUrl) => {
     fetch(todoUrl)
     .then(res => res.json())
     .then((result) => {
-      // const dashboardTasks = result.filter(dbt => dbt.project_id === 2198782583)
       this.setState({
         tasks: result,
         isTodoLoaded: true
@@ -60,6 +61,11 @@ class App extends Component {
     }
   }
 
+  addTask = (task) => {
+    const tasks = this.state.tasks.push(task);
+    console.log(tasks);
+  }
+
   markAsDone = (taskId, todoUrl) => {
     const remainingTasks = this.state.tasks.filter(t => t.id !== taskId)
     fetch(todoUrl + taskId, {method: 'post'})
@@ -70,23 +76,22 @@ class App extends Component {
 
   fetchCameras = (nestUrl) => {
     fetch(nestUrl)
-      .then(res => res.json())
+      .then(response => response.json())
       .then((result) => {
         this.setState({
           cameras: result.devices,
           isNestLoaded: true
         })
-      }
-    )
-  }  
+      })
+      .catch('Cameras not loaded');
+  }
 
   render() {
     return (
-      <div className="App" style={appStyles.main}>
-        <h2 style={appStyles.appH2}>DASHBOARD</h2>
-        <Weather url='http://localhost:5000/weather' />
+      <div style={appStyles.main}>
         <ToDo
-          markAsDone={this.markAsDone} 
+          url={`${this.url}/todo`}
+          markAsDone={this.markAsDone}
           tasks={this.state.tasks}
           projects={this.state.projects}
           isTodoLoaded={this.state.isTodoLoaded}
@@ -98,7 +103,9 @@ class App extends Component {
           project={this.state.project}
           projectTasks={this.state.projectTasks}
         />
+        <Weather url={`${this.url}/weather`} />
         <Nest
+          url={`${this.url}/nest`}
           fetchCameras={this.fetchCameras}
           isLoaded={this.state.isNestLoaded}
           error={this.state.nestError}

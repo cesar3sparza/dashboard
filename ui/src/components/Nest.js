@@ -3,7 +3,7 @@ import appStyles from '../appStyles';
 
 class Nest extends React.Component {
 
-  url='http://localhost:5000/nest'
+  url = this.props.url;
 
   componentDidMount(){
     this.props.fetchCameras(this.url);

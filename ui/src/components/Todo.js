@@ -2,8 +2,8 @@ import React from 'react';
 import appStyles from '../appStyles';
 
 class ToDo extends React.Component {
-  todoUrl = 'http://localhost:5000/todo/';
-  todoProjects = 'http://localhost:5000/todo/projects';
+  todoUrl = this.props.url;
+  todoProjects = `${this.props.url}/projects`;
 
   componentDidMount(){
     this.props.fetchList(this.todoUrl)
@@ -21,7 +21,7 @@ class ToDo extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div className='todoApp' style={appStyles.todoApp}>
+        <div className="toDo" style={appStyles.todoApp}>
           <h2 style={appStyles.todoApp.h2}>ToDo</h2>
           <span 
             style={appStyles.reloadTasks} 
@@ -38,7 +38,7 @@ class ToDo extends React.Component {
               </option>
             )}
           </select>
-          <ul style={appStyles.ul}>
+          <ul style={appStyles.todoApp.ul}>
           {Object.keys(tasks).map(key =>  
             <li 
               key={key} 
