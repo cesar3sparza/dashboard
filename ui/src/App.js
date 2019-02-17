@@ -18,11 +18,11 @@ class App extends Component {
     isNestLoaded: false,
   }
 
-  url = 'http://50.116.12.123:5000';
+  url = 'http://localhost:5000';
 
   fetchList = (todoUrl) => {
     fetch(todoUrl)
-    .then(res => res.json())
+    .then(result => result.json())
     .then((result) => {
       this.setState({
         tasks: result,
