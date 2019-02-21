@@ -18,7 +18,7 @@ class App extends Component {
     isNestLoaded: false,
   }
 
-  url = 'http://localhost:5000';
+  url = process.env.REACT_APP_API_URL;
 
   fetchList = (todoUrl) => {
     fetch(todoUrl)
